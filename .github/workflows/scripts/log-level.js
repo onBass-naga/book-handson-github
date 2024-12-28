@@ -1,5 +1,5 @@
 module.exports = async (context) => {
-  console.log(JSON.stringify(context))
+  // console.log(JSON.stringify(context))
   // console.log(JSON.stringify(process.env))
 
   const labelName = context?.payload?.label?.name
@@ -10,6 +10,6 @@ module.exports = async (context) => {
       ? 'info'
       : labelName.replace('log-level/', '')
 
-  console.log(`level: ${labelName}`)
+  console.log(`level: ${level}`)
   return level
 }
