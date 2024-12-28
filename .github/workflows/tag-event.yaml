@@ -19,5 +19,11 @@ jobs:
         run: echo "${LABEL}"
         env:
           LABEL: ${{ toJSON(github.event.label) }} 
-      # - name: PR URL
-      #   run: echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ steps.pr.outputs.pull_request_number }}
+      - uses: actions/github-script@v7
+        id: log-level
+        with:
+          script: |
+            const script = require('./.github/workflows/scripts/log-level.js');
+            await script( github );
+      - name: show log level
+        run: echo "{{ steps.log-level.outputs.result }}"
