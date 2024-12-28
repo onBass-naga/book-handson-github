@@ -2,10 +2,12 @@ name: TagEvent
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_dispatch
+  # workflow_dispatch
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: PR URL
-        run: echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ steps.pr.outputs.pull_request_number }}
+      - name: SHA
+        run: echo "${{ env.sha }}"
+      # - name: PR URL
+      #   run: echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ steps.pr.outputs.pull_request_number }}
