@@ -1,13 +1,23 @@
 name: TagEvent
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, labeled]
   # workflow_dispatch
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+      - name: dump
+        run: echo "${CONTEXT}"
+        env:
+          CONTEXT: ${{ toJSON(github) }} 
       - name: SHA
-        run: echo "${{ toJSON(github.event.after) }}"
+        run: echo "${SHA}"
+        env:
+          SHA: ${{ toJSON(github.event.after) }} 
+      - name: label
+        run: echo "${LABEL}"
+        env:
+          LABEL: ${{ toJSON(github.event.label) }} 
       # - name: PR URL
       #   run: echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ steps.pr.outputs.pull_request_number }}
