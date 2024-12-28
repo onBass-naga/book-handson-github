@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SHA
-        run: echo "${{ toJSON(github) }}"
+        run: echo "${{ toJSON(github.event.after) }}"
       # - name: PR URL
       #   run: echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ steps.pr.outputs.pull_request_number }}
