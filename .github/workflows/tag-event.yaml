@@ -25,7 +25,7 @@ jobs:
         with:
           script: |
             const script = require('./.github/workflows/scripts/log-level.js');
-            await script( context );
+            return await script( context );
           result-encoding: string
       - name: show log level
         run: echo "${{ steps.log-level.outputs.result }}"
