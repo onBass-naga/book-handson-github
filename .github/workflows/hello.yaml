@@ -1,0 +1,11 @@
+name: Hello
+on: [push, pull_request] # イベント
+jobs:
+  hello: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - run: echo "Hello, world" 
+      - uses: actions/checkout@v4 
+      - run: |
+          git log -1
+          tree -a .
