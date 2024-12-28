@@ -1,5 +1,6 @@
 module.exports = async (github) => {
-  console.log(JSON.stringify(github))
+  // console.log(JSON.stringify(github))
+  console.log(JSON.stringify(process.env))
   const labelName = github?.event?.label?.name
   console.log(labelName)
   const level =
