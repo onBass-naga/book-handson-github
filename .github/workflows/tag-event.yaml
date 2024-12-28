@@ -18,7 +18,8 @@ jobs:
       - name: label
         run: echo "${LABEL}"
         env:
-          LABEL: ${{ toJSON(github.event.label) }} 
+          LABEL: ${{ toJSON(github.event.label) }}
+      - uses: actions/checkout@v4    
       - uses: actions/github-script@v7
         id: log-level
         with:
