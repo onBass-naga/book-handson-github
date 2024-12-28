@@ -28,4 +28,4 @@ jobs:
             await script( context );
           result-encoding: string
       - name: show log level
-        run: echo "{{ steps.log-level.outputs.result }}"
+        run: echo "${{ steps.log-level.outputs.result }}"
