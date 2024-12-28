@@ -1,4 +1,4 @@
-name: Manual
+name: TagEvent
 on:
   pull_request:
     types: [opened, synchronize, reopened]
